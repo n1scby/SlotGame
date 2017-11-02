@@ -10,6 +10,7 @@
 <body>
 <div class="screen-on">   
 <h1>Welcome to the Slot Game!</h1>
+<p>You get ten tokens to start. For every 100 points you earn a new token!</p>
 <div id="settings">Settings:<br>
 <label>Please enter your name:</label>
 <input type="text" id="name"/>
@@ -31,8 +32,15 @@
 </div> 
 <div class="screen-off">
 <h1>Pull the Lever!!!! </h1>
+<label>Score:</label>
+<output id="score">0</output>
+<br>
+<label>Tokens:</label>
+<output id="tokens">10</output>
+<button id="lever">Lever</button>
 <div id="output-area"></div>
 </div> 
+<script src="random.js"></script>
 <script src="slot.js"></script>
 </body>
 </html>
