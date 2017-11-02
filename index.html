@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slot Game</title>
+    <link rel="stylesheet" href="slot.css">
+</head>
+<body>
+<div class="screen-on">   
+<h1>Welcome to the Slot Game!</h1>
+<div id="settings">Settings:<br>
+<label>Please enter your name:</label>
+<input type="text" id="name"/>
+    <label>Difficulty Level:</label>
+    <select id="select-difficulty">
+        <option value="1">Easy</option>
+        <option value="2">Medium</option>
+        <option value="3">Crazy Hard</option>
+
+    </select>
+    <select id="select-theme">
+        <option value="1">Theme 1</option>
+        <option value="2">Theme 2</option>
+        <option value="3">Theme 3</option>
+
+    </select>
+<button id="start-game">Start Game</button>
+</div>
+</div> 
+<div class="screen-off">
+<h1>Pull the Lever!!!! </h1>
+<div id="output-area"></div>
+</div> 
+<script src="slot.js"></script>
+</body>
+</html>
