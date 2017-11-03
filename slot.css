@@ -1,3 +1,22 @@
 body {background-color: rgb(223, 213, 213);}
 .screen-on{display: block;}
 .screen-off{display: none;}
+
+#start-page{width: 500px;
+            height: 300px;
+            margin: auto;
+            margin-top: 20px;
+            padding: 20px;
+            
+}
+
+#settings{ border-style: solid;
+            border-width: 1px;
+            padding: 0px 10px 10px 10px;
+            margin: 2px;
+            line-height: 2rem;
+
+
+}
+
+#theme{ padding: 0 0 0 10px;}
