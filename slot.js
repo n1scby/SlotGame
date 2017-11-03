@@ -13,6 +13,7 @@ var Total = 0;
 var bumpTokens = 0;
 var emojis = ["emojiBeer", "emojiSmile", "emojiSurprise", "emojiTie", "emojiTongue"];
 var dragons = ["dragon1", "dragon2", "dragon3", "dragon4", "dragon5"];
+var dogs = ["dog1", "dog2", "dog3", "dog4,", "dog5"];
 
 
 
@@ -73,7 +74,8 @@ function getSlotImages(picNum, timer){
                       break; 
             case "2": displayOutput.innerHTML += '<img src="images/Dragons/' + dragons[picNum] + '.png">';
                       break;        
-            
+            case "3": displayOutput.innerHTML += '<img src="images/dogs/' + dogs[picNum] + '.png">';
+                      break;        
     }
     }, timer);
 
