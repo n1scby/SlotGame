@@ -15,6 +15,7 @@ var emojis = ["emojiBeer", "emojiSmile", "emojiSurprise", "emojiTie", "emojiTong
 var dragons = ["dragon1", "dragon2", "dragon3", "dragon4", "dragon5"];
 
 
+
 startButton.addEventListener("click", function(){
     
     if(nameText.value != ""){
@@ -26,6 +27,8 @@ startButton.addEventListener("click", function(){
 });
 
 leverButton.addEventListener("click", function(){
+    var slotSound = new Audio("sounds/cash_register_x.wav");
+
     var maxNumber = 0;
     var numberArray = [];
  
@@ -33,7 +36,9 @@ leverButton.addEventListener("click", function(){
      displayOutput.innerHTML = "<strong>Game Over</strong>";
      return;
  }   
-    tokensTotal--;
+
+     slotSound.play();
+     tokensTotal--;
 
     switch(difficultySetting.value){
         case "1": maxNumber = 2;
@@ -46,50 +51,61 @@ leverButton.addEventListener("click", function(){
     }
     
     displayOutput.innerHTML = "";
-    
+    var timeDelay = 0;
+
     for(var i=0; i<3; i++){
     numberArray[i] = getRandomNumber(0, maxNumber);
-    //displayOutput.innerHTML += numberArray[i] + "  ";
-    getSlotImages(numberArray[i]);
+    
+    getSlotImages(numberArray[i], timeDelay+=1000);
     
     }
 
+    endOfTurn(numberArray, 3500);    
     
-    if (numberArray[0] == numberArray[1] && numberArray[0] == numberArray[2]) {
-        displayOutput.innerHTML += "<br> Jackpot!!! <br>";
-        Total += 100;
-        bumpTokens = 100;
-    
-    } else {
-        if((numberArray[0] == numberArray[1]) || (numberArray[0] == numberArray[2]) || (numberArray[1] == numberArray[2]) ){
-            displayOutput.innerHTML += "<br> Two out of Three Ain't bad! <br>";
-        Total += 25;
-        bumpTokens += 25;
-        }
-    }
-    
-    if (bumpTokens == 100){
-        displayOutput.innerHTML += "<br>You earned a token! <br>";
-        tokensTotal++;
-        bumpTokens = 0;
-    }
-    
-    scoreTotal.innerHTML = Total;
-    tokensDisplay.innerHTML = tokensTotal;
-
     
 
 });
 
-function getSlotImages(picNum){
-    
+function getSlotImages(picNum, timer){
+    setTimeout(function(){
+        switch(themeSetting.value){
+            case "1": displayOutput.innerHTML += '<img src="images/emojis/' + emojis[picNum] + '.png">';
+                      break; 
+            case "2": displayOutput.innerHTML += '<img src="images/Dragons/' + dragons[picNum] + '.png">';
+                      break;        
+            
+    }
+    }, timer);
 
-    switch(themeSetting.value){
-        case "1": displayOutput.innerHTML += '<img src="images/emojis/' + emojis[picNum] + '.png">';
-                  break; 
-        case "2": displayOutput.innerHTML += '<img src="images/Dragons/' + dragons[picNum] + '.png">';
-                  break;
-    
-        
+ 
 }
+
+function endOfTurn(numberArray, timer){
+    setTimeout(function(){
+        if (numberArray[0] == numberArray[1] && numberArray[0] == numberArray[2]) {
+            displayOutput.innerHTML += "<br> Jackpot!!! <br>";
+            var jackpotSound = new Audio("sounds/jackpot.wav");
+            jackpotSound.play();
+            Total += 100;
+            bumpTokens = 100;
+    
+        } else {
+            if((numberArray[0] == numberArray[1]) || (numberArray[0] == numberArray[2]) || (numberArray[1] == numberArray[2]) ){
+                displayOutput.innerHTML += "<br> Two out of Three Ain't bad! <br>";
+            Total += 25;
+            bumpTokens += 25;
+            } else {
+                displayOutput.innerHTML += "<br> Nothing! <br>";
+            }
+        }
+        
+        if (bumpTokens == 100){
+            displayOutput.innerHTML += "<br>You earned a token! <br>";
+            tokensTotal++;
+            bumpTokens = 0;
+        }
+        
+        scoreTotal.innerHTML = Total;
+        tokensDisplay.innerHTML = tokensTotal;
+    }, timer);
 }
