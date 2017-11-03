@@ -11,7 +11,8 @@ var tokensDisplay = document.getElementById("tokens");
 var tokensTotal = 10;
 var Total = 0;
 var bumpTokens = 0;
-
+var emojis = ["emojiBeer", "emojiSmile", "emojiSurprise", "emojiTie", "emojiTongue"];
+var dragons = ["dragon1", "dragon2", "dragon3", "dragon4", "dragon5"];
 
 
 startButton.addEventListener("click", function(){
@@ -44,9 +45,12 @@ leverButton.addEventListener("click", function(){
 
     }
     
+    displayOutput.innerHTML = "";
+    
     for(var i=0; i<3; i++){
     numberArray[i] = getRandomNumber(0, maxNumber);
-    displayOutput.innerHTML += numberArray[i] + "  ";
+    //displayOutput.innerHTML += numberArray[i] + "  ";
+    getSlotImages(numberArray[i]);
     
     }
 
@@ -76,3 +80,16 @@ leverButton.addEventListener("click", function(){
     
 
 });
+
+function getSlotImages(picNum){
+    
+
+    switch(themeSetting.value){
+        case "1": displayOutput.innerHTML += '<img src="images/emojis/' + emojis[picNum] + '.png">';
+                  break; 
+        case "2": displayOutput.innerHTML += '<img src="images/Dragons/' + dragons[picNum] + '.png">';
+                  break;
+    
+        
+}
+}
