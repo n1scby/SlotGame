@@ -2,21 +2,47 @@ body {background-color: rgb(223, 213, 213);}
 .screen-on{display: block;}
 .screen-off{display: none;}
 
-#start-page{width: 500px;
-            height: 300px;
-            margin: auto;
-            margin-top: 20px;
-            padding: 20px;
-            
+#start-page{ margin-top: 20px;}
+             
+                         
+
+h1 {font-size: 3.0rem;
+    text-align: center;
+    padding: 10px;
+    }
+
+p {font-size: 2.0rem;
+    text-align: center;}
+
+h3 {margin: 3px 0px 4px 2px;
+    }
+
+#settings{ font-size: 3rem;
+           border-style: solid;
+           border-width: 1px;
+           line-height: 5rem;
+           width: 50%;
+           float: left;
+           padding: 15px;
+           margin: 0px 10px 0px 100px;
 }
 
-#settings{ border-style: solid;
-            border-width: 1px;
-            padding: 0px 10px 10px 10px;
-            margin: 2px;
-            line-height: 2rem;
-
-
+#slot-machine{ width: 500px;
+               float: right;
+               margin: 0 200px 0 0;          
 }
 
 #theme{ padding: 0 0 0 10px;}
+
+#name {height:3.0rem;
+       width: 20.0rem;
+       font-size: 2.0rem;}
+
+select {height: 3.0rem;
+        width: 10rem;
+        font-size: 2.0rem;}
+
+#start-game{height: 4.0rem;
+            width: 15.0rem;
+            font-size: 2rem;
+            }
