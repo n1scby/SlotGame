@@ -13,7 +13,11 @@
  
     <h1>Welcome to the Slot Game!</h1>
     <p>You get ten tokens to start. For every 100 points you earn a new token!</p>
-
+ 
+    <div id="slot-machine">
+            <image src="images\slotMachine.png"></image>    
+    </div>  
+    
     <div id="settings">
         <h3>Settings:</h3>
         <label>Please enter your name:</label>
@@ -34,20 +38,21 @@
         </select><br>
         <button id="start-game">Start Game</button>
     </div>
-    <div id="slot-machine">
-        <image src="images\slotMachine.png"></image>
-    </div>  
+   
 </div>
 </div> 
 <div class="screen-off">
-<h1>Pull the Lever!!!! </h1>
-<label>Score:</label>
-<output id="score">0</output>
-<br>
-<label>Tokens:</label>
-<output id="tokens">10</output>
-<button id="lever">Lever</button>
-<div id="output-area"></div>
+    <h1>Pull the Lever!!!! </h1>
+    <div id="score-table">
+        <label>Score:</label>
+        <output id="score">0</output>
+        <br>
+        <label>Tokens:</label>
+        <output id="tokens">10</output>
+    </div>
+    <button id="lever">Lever</button>
+    <div id="output-area"></div>
+    <div id="message-area"></div>
 </div> 
 <script src="random.js"></script>
 <script src="slot.js"></script>

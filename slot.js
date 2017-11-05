@@ -6,6 +6,7 @@ var startDiv = document.querySelector(".screen-on");
 var gameDiv = document.querySelector(".screen-off");
 var leverButton = document.getElementById("lever");
 var displayOutput = document.getElementById("output-area");
+var messageOutput = document.getElementById("message-area");
 var scoreTotal = document.getElementById("score");
 var tokensDisplay = document.getElementById("tokens");
 var tokensTotal = 10;
@@ -32,9 +33,10 @@ leverButton.addEventListener("click", function(){
 
     var maxNumber = 0;
     var numberArray = [];
+    messageOutput.innerHTML = "";
  
  if (tokensTotal == 0){
-     displayOutput.innerHTML = "<strong>Game Over</strong>";
+     messageOutput.innerHTML = "<strong>Game Over</strong>";
      return;
  }   
 
@@ -57,11 +59,11 @@ leverButton.addEventListener("click", function(){
     for(var i=0; i<3; i++){
     numberArray[i] = getRandomNumber(0, maxNumber);
     
-    getSlotImages(numberArray[i], timeDelay+=1000);
+    getSlotImages(numberArray[i], timeDelay+=800);
     
     }
 
-    endOfTurn(numberArray, 3500);    
+    endOfTurn(numberArray, 2400);    
     
     
 
@@ -85,7 +87,7 @@ function getSlotImages(picNum, timer){
 function endOfTurn(numberArray, timer){
     setTimeout(function(){
         if (numberArray[0] == numberArray[1] && numberArray[0] == numberArray[2]) {
-            displayOutput.innerHTML += "<br> Jackpot!!! <br>";
+            messageOutput.innerHTML = "<br> Jackpot!!! <br>";
             var jackpotSound = new Audio("sounds/jackpot.wav");
             jackpotSound.play();
             Total += 100;
@@ -93,16 +95,16 @@ function endOfTurn(numberArray, timer){
     
         } else {
             if((numberArray[0] == numberArray[1]) || (numberArray[0] == numberArray[2]) || (numberArray[1] == numberArray[2]) ){
-                displayOutput.innerHTML += "<br> Two out of Three Ain't bad! <br>";
+                messageOutput.innerHTML = "<br> Two out of Three Ain't bad! <br>";
             Total += 25;
             bumpTokens += 25;
             } else {
-                displayOutput.innerHTML += "<br> Nothing! <br>";
+                messageOutput.innerHTML = "<br> Nothing! <br>";
             }
         }
         
         if (bumpTokens == 100){
-            displayOutput.innerHTML += "<br>You earned a token! <br>";
+            messageOutput.innerHTML += "<br>You earned a token! <br>";
             tokensTotal++;
             bumpTokens = 0;
         }
