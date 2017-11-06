@@ -9,23 +9,41 @@ var displayOutput = document.getElementById("output-area");
 var messageOutput = document.getElementById("message-area");
 var scoreTotal = document.getElementById("score");
 var tokensDisplay = document.getElementById("tokens");
+var playerDisplay = document.getElementById("player");
+var restartGame = document.getElementById("restart");
 var tokensTotal = 10;
 var Total = 0;
 var bumpTokens = 0;
 var emojis = ["emojiBeer", "emojiSmile", "emojiSurprise", "emojiTie", "emojiTongue"];
 var dragons = ["dragon1", "dragon2", "dragon3", "dragon4", "dragon5"];
-var dogs = ["dog1", "dog2", "dog3", "dog4,", "dog5"];
+var dogs = ["dog1", "dog2", "dog3", "dog4", "dog5"];
 
 
 
 startButton.addEventListener("click", function(){
     
     if(nameText.value != ""){
+        playerDisplay.innerHTML = nameText.value;
         startDiv.className = "screen-off";
         gameDiv.className = "screen-on";
     } else {
         alert("Enter Player Name to Start");
     }
+});
+
+restartGame.addEventListener("click", function(){
+    
+    tokensTotal = 10;
+    Total = 0;
+    bumpTokens = 0;
+    nameText.value = "";
+    tokensDisplay.innerHTML = "10";
+    scoreTotal.innerHTML = 0;
+    displayOutput.innerHTML = "";
+    messageOutput.innerHTML = "";
+    startDiv.className = "screen-on";
+    gameDiv.className = "screen-off";
+
 });
 
 leverButton.addEventListener("click", function(){
@@ -34,6 +52,7 @@ leverButton.addEventListener("click", function(){
     var maxNumber = 0;
     var numberArray = [];
     messageOutput.innerHTML = "";
+    leverButton.disabled = true;
  
  if (tokensTotal == 0){
      messageOutput.innerHTML = "<strong>Game Over</strong>";
@@ -48,7 +67,7 @@ leverButton.addEventListener("click", function(){
                   break;
         case "2": maxNumber = 3;
                   break;
-        case "3": maxNumber = 5;
+        case "3": maxNumber = 4;
                   break;
 
     }
@@ -87,7 +106,7 @@ function getSlotImages(picNum, timer){
 function endOfTurn(numberArray, timer){
     setTimeout(function(){
         if (numberArray[0] == numberArray[1] && numberArray[0] == numberArray[2]) {
-            messageOutput.innerHTML = "<br> Jackpot!!! <br>";
+            messageOutput.innerHTML = " Jackpot!!! ";
             var jackpotSound = new Audio("sounds/jackpot.wav");
             jackpotSound.play();
             Total += 100;
@@ -95,21 +114,22 @@ function endOfTurn(numberArray, timer){
     
         } else {
             if((numberArray[0] == numberArray[1]) || (numberArray[0] == numberArray[2]) || (numberArray[1] == numberArray[2]) ){
-                messageOutput.innerHTML = "<br> Two out of Three Ain't bad! <br>";
+                messageOutput.innerHTML = "Two out of Three Ain't bad! ";
             Total += 25;
             bumpTokens += 25;
             } else {
-                messageOutput.innerHTML = "<br> Nothing! <br>";
+                messageOutput.innerHTML = " Nothing! ";
             }
         }
         
         if (bumpTokens == 100){
-            messageOutput.innerHTML += "<br>You earned a token! <br>";
+            messageOutput.innerHTML += "   You earned a token! <br>";
             tokensTotal++;
             bumpTokens = 0;
         }
         
         scoreTotal.innerHTML = Total;
         tokensDisplay.innerHTML = tokensTotal;
+        leverButton.disabled = false;
     }, timer);
 }

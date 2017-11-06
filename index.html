@@ -17,7 +17,7 @@
     <div id="slot-machine">
             <image src="images\slotMachine.png"></image>    
     </div>  
-    
+
     <div id="settings">
         <h3>Settings:</h3>
         <label>Please enter your name:</label>
@@ -42,15 +42,23 @@
 </div>
 </div> 
 <div class="screen-off">
-    <h1>Pull the Lever!!!! </h1>
+    <h1>The Slot Game!</h1>
+    <div id="lever-section">
+            <h2>Pull the Lever!</h2>
+            <button id="lever">Lever</button>
+            <button id="restart">Start Over</button>
+    </div>  
     <div id="score-table">
+        <label>Player: </label>
+        <output id="player"></output>
+        <br>
         <label>Score:</label>
         <output id="score">0</output>
         <br>
         <label>Tokens:</label>
         <output id="tokens">10</output>
     </div>
-    <button id="lever">Lever</button>
+   
     <div id="output-area"></div>
     <div id="message-area"></div>
 </div> 

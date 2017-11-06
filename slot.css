@@ -1,4 +1,5 @@
 body {background-color: black;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
       }
 .screen-on{display: block;}
 .screen-off{display: none;}
@@ -11,16 +12,19 @@ h1 {font-size: 3.0rem;
     text-align: center;
     padding: 10px;
     color:rgb(211, 18, 18);
+
     }
 
 p {font-size: 2.0rem;
     text-align: center;
     color: rgb(230, 230, 11)}
 
-h3 {margin: 3px 0px 4px 2px;
+h2 {margin: 3px 0px 4px 2px;
+    font-size:2.0rem;
     }
+h3 {margin: 0px 0px 2px 2px;}
 
-#settings{ font-size: 2.5rem;
+#settings{ font-size: 2.0rem;
            border-style: solid; 
            border-width: 1px;
            line-height: 5rem;
@@ -30,20 +34,20 @@ h3 {margin: 3px 0px 4px 2px;
            background-color: rgb(55, 165, 79);
 }
 
-#slot-machine{ width: 500px;
+#slot-machine{ width: 400px;
                float: right;
-               margin: 0 200px 0 0;          
+               margin: 0 250px 0 0;          
 }
 
 #theme{ padding: 0 0 0 10px;}
 
-#name {height:3.0rem;
-       width: 20.0rem;
+#name {height:2.5rem;
+       width: 10.0rem;
        font-size: 2.0rem;}
 
-select {height: 3.0rem;
+select {height: 2.0rem;
         width: 10rem;
-        font-size: 2.0rem;}
+        font-size: 1.5rem;}
 
 #start-game{height: 4.0rem;
             width: 15.0rem;
@@ -52,16 +56,33 @@ select {height: 3.0rem;
             }
 #score-table{background-color: rgb(230, 230, 11);
              line-height: 3rem;
-             font-size: 3rem;
+             font-size: 2.5rem;
              width: 20%;
+             margin-left: 50px;
+             margin-bottom: 50px;
              padding: 10px 10px 10px 20px;
               }
 
 #message-area {color: rgb(55, 165, 79);
-              font-size: 3rem; }
-
-#output-area {width: 80%;
-              background-color: white;
-              margin: auto;
-              height: 40%;
+              font-size: 3rem; 
+              margin-left: 50px;
               }
+
+#output-area {width: 90%;
+              margin: auto;
+              margin-bottom: 3px;
+
+              }
+#lever-section{float: right; 
+               color: rgb(55, 165, 79);
+               margin: 0 400px 0 0; }
+               
+#lever {height: 4.0rem;
+                width: 15.0rem;
+                font-size: 2rem;         
+                }
+
+#restart {height: 2.0rem;
+         width: 10.0rem;
+        font-size: 1.5rem;         
+        }               
