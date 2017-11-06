@@ -10,7 +10,7 @@ body {background-color: black;
 
 h1 {font-size: 3.0rem;
     text-align: center;
-    padding: 10px;
+    padding: 5px 10px 5px 10px;
     color:rgb(211, 18, 18);
 
     }
@@ -41,9 +41,9 @@ h3 {margin: 0px 0px 2px 2px;}
 
 #theme{ padding: 0 0 0 10px;}
 
-#name {height:2.5rem;
+#name {height:2.0rem;
        width: 10.0rem;
-       font-size: 2.0rem;}
+       font-size: 1.5rem;}
 
 select {height: 2.0rem;
         width: 10rem;
@@ -65,12 +65,13 @@ select {height: 2.0rem;
 
 #message-area {color: rgb(55, 165, 79);
               font-size: 3rem; 
-              margin-left: 50px;
+              padding-left: 200px;
               }
 
-#output-area {width: 90%;
+#output-area {width: 75%;
               margin: auto;
               margin-bottom: 3px;
+              
 
               }
 #lever-section{float: right; 

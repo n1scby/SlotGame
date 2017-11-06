@@ -43,6 +43,9 @@ restartGame.addEventListener("click", function(){
     messageOutput.innerHTML = "";
     startDiv.className = "screen-on";
     gameDiv.className = "screen-off";
+    leverButton.disabled = false;
+    themeSetting.value = "1";
+    difficultySetting.value = "1";
 
 });
 
